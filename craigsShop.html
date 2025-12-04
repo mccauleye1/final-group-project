@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Craigslist Variety Shop</title>
+  <link rel="stylesheet" href="./shopStyle.css">
+</head>
+<body>
+  <!-- Homepage Favicon -->
+  <a href='homepage'>
+    <button class='homeBtn'>
+      <img class='house'src='https://cdn-icons-png.flaticon.com/256/10140/10140870.png'>
+    </button>
+  </a>
+
+<!-- Navigation bar -->
+  <!--Switch page function-->  
+<div class='navbar'>
+  <h2 class='title'>Craigslist 
+
+    <select class='switchpage' id='switchpage'>
+      <option value='craigsShop.html'>Variety Shop</option>   
+      <option value='craigsCommunity.html'>Services</option>
+      <option value='craigsService.html'>Community</option>
+    </select>
+  </h2>
+
+  <!--Dropdown menus + Filter button-->      
+  <table>
+    <tr>
+      <th>
+        <label class='county' for="myDropdown1">County:</label>
+        <select class='counties' id="myDropdown1" name="myDropdown1">
+          <option value="option0">Any county</option>
+          <option value="option1">Boone County, KY</option>
+          <option value="option2">Campbell County, KY</option>
+          <option value="option3">Kenton County, KY</option>
+        </select>
+      </th>
+
+      <th>
+        <label class='category' for="myDropdown2">Category:</label>
+        <select class='categories' id="myDropdown2" name="myDropdown2">
+          <option value="option0">Any category</option>
+          <option value="option1">Appliances</option>
+          <option value="option2">Clothes</option>
+          <option value="option3">Home Decor</option>
+          <option value="option4">Merchandise</option>
+          <option value="option5">Toys & Board Games</option>
+        </select>
+      </th>
+
+      <th>
+        <label class='item' for="myDropdown3">Item type:</label>
+        <select class='items'id="myDropdown3" name="myDropdown3">
+          <option value="option1">Accessories</option>
+          <option value="option2">Clothes</option>
+          <option value="option3">Furniture</option>
+          <option value="option4">Technology</option>
+          <option value="option4">Toys</option>
+        </select>
+      </th>
+
+      <th>
+        <label class='price' for="myDropdown4">Prices: </label>    
+        <select class='prices' id="myDropdown4" name="myDropdown4">
+          <option value="option1">$0.70 - $99</option>
+          <option value="option2">$100 - $299</option>
+          <option value="option3">$300 - $499</option>
+          <option value="option4">$500 - $999</option>
+          <option value="option5">$1000+</option>
+        </select>
+      </th>
+      
+      <th>
+        <label class='quality' for="myDropdown5">Quality:</label>
+        <select class='qualities' id="myDropdown5" name="myDropdown5">
+          <option value="option0">Any quality</option>
+          <option value="option1">Brand new</option>
+          <option value="option2">Barely used</option>
+          <option value="option3">Worn & torn</option>
+        </select>
+      </th>
+           
+      <th>
+        <button type="submit"  class='filterBtn'>Filter</button>
+        <div class='filterContainer' id='result'>
+          <p></p>
+        </div>  
+      </th>
+
+      <th>
+        <img class='person'src='https://cdn-icons-png.freepik.com/512/10709/10709674.png'></img>
+      </th>
+   </tr>   
+  </table>        
+</div>
+
+  <!-- Search bar -->
+  
+  <input type='search' class='searchBar' id="search" placeholder='What you lookin for, partner? Ex: "DualSense Controller for Ps5"' autocomplete="off"></input>
+  
+  <div class='response' id='response'>
+    <p></p>  
+  </div>
+
+  <div class="searchBtn">
+    <button type="submit">Search</button>
+    <div class='searchContainer' id='result2'><p></p>
+    </div>
+  </div>
+  <p id="searched" class="helper-text"></p>
+
+<!-- Sales Floor (Items)-->   
+<div class="salesFloor">  
+  <table class="salesFloor">
+    <tr>
+      <th class='item1' id="item1">
+        <div id='ctrlr'>
+          <img id='img1' class='img1' src='https://i5.walmartimages.com/seo/99Ft-Smart-String-Lights-150-LED-DIY-Extendable-C9-Color-Changing-APP-Remote-Controlled-Music-Timer-Halloween-Waterproof-Programmable-Lights-Eaves-Fe_4a9df835-39ae-4845-b8fe-b3767aa07375.16f58018394f005994d1ef477630ee8b.jpeg?odnHeight=573&odnWidth=573&odnBg=FFFFFF'>LED Strip Christmas Lights</img>
+          <br>
+          <p class='ps5'>$10.00</p>
+
+          <p class='seller1'>Seller: <a href=''class='user1'>Freddy Croger</a>
+                            in Campbell County
+          </p>
+        </div>
+      </th>
+
+      <th class=item2>
+        <div id='eleven'>
+          <img id='img2' class='img2' src='https://i5.walmartimages.com/seo/Squishmallows-Plush-10-inch-Stranger-Things-Eleven-Childs-Ultra-Soft-Stuffed-Toy_41e32f12-858b-4980-8c3e-dd4c3e3b1059.260813a0240eea0373928a6be0b054f8.jpeg?odnHeight=160&odnWidth=160&odnBg=FFFFFF'> Eleven Stranger Things Squishmallow</img>
+          <br>  
+          <p class= 'eleven'>$3.00</p>
+
+          <p class='seller1'>Seller: <a href=''class='user1'>Sally Smith</a>
+              in Campbell County
+          </p>
+        </div>
+      </th>
+    </tr>
+    <tr>
+      <th class='item3'>
+        <div id='nikes'>
+          <img id='img3' class='img3' src='https://media-photos.depop.com/b1/23080921/1643663563_b867291ae291410988af0fb3bfd50a60/P0.jpg'> 1 Retro Low "Chicago" Jordans</img>
+          <br>
+          <p class='jrds'> $105.00</p>
+
+          <p class='seller1'>Seller: <a href=''class='user1'>Louis Lucy</a>
+              in Boone County
+          </p>
+        </div>
+      </th>
+
+      <th class='item4'>
+        <div id='desk'>
+          <img id='img4' class='img4' src='https://i.pinimg.com/originals/d5/0b/a9/d50ba982b70d6e6b90d4335b8a10ab0c.jpg'>Wooden L Shaped Desk</img>
+          <br> 
+          <p class='dsk'> $175.00</p>
+
+          <p class='seller1'>Seller: <a href=''class='user1'>Todd Teller</a>
+                in Kenton County
+          </p>
+        </div>
+      </th>
+    </tr>
+  </table>
+</div>
+  <script  src="./shopScript.js"></script>
+</body>
+  
+</html>
