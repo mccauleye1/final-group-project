@@ -3,6 +3,7 @@ document.getElementById("switchpage").addEventListener("change", function () {
     const page = this.value;
     if (page) {
         window.location.href = page;
+        this.value = page;
     }
 });
 
