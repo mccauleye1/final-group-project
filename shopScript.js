@@ -26,11 +26,11 @@ document.querySelector(".filterBtn").addEventListener("click", function () {
 
 document.getElementById("item1").addEventListener("click", function(){
   window.location.href = "For_Sale.html";
-})
+});
 
 document.getElementById("homeBtn").addEventListener("click", function(){
   window.location.href = "craigshome.html";
-})
+});
 
 // ------------------------------------
 // SEARCH FUNCTION 
