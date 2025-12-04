@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<head>
+    <title>Craigslist Redesign - Mechanic Work</title>
+    <link rel="stylesheet" href="../craigslist html/javascript_&_css/craigscss.css">
+    <style>
+        .postOptions {
+            list-style: none;
+            padding: 15px;
+            margin: 0;
+            display: flex;
+            justify-content: left;
+        }
+        .postInfo {
+            list-style: none;
+            padding: 15px;
+            margin: 0;
+            display: flex;
+            justify-content: space-around;
+        }
+        .postImage {
+            max-width: 45%;
+            max-height: 450px;
+            float: right;
+        }
+        #popup-overlay {
+            position: fixed; /* Fixed position relative to the viewport */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+            display: none; /* Hidden by default */
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+            z-index: 1000; /* Ensure it's on top of other content */
+        }   
+        #popupContent {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+       }
+       @media print {
+            .noprint {
+                display:none;
+            }
+       }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="noprint"><!--NAVBAR--->
+        </div>
+        <h1>Craigslist Events</h1>
+        <a href="About_Craigslist.html" class="noprint">About Us</a>
+        <a href="Event_Listing.html" class="noprint">Eddie's</a>
+        <a href="For_Sale.html" class="noprint">Lights</a>
+        <a href="Service_Listings.html" class="noprint">Mechanic</a>
+        <h2>Jessy's Mobile Mechanic Services</h2>
+        <ul class="postOptions noprint">
+            <li><button id="reply" class="roundedbtn" onclick="reply()">📧<br>Reply</button></li>
+            <li><button id="favorite" class="roundedbtn" onclick="favorite()">⭐<br>Favorite</button></li>
+            <li><button id="hide" class="roundedbtn" onclick="hide()">🙈<br>Hide</button></li>
+            <li><button id="flag" class="roundedbtn" onclick="flag()">🚩<br>Flag</button></li>
+            <li><button id="share" class="roundedbtn" onclick="share()">📩<br>Share</button></li>
+            <li><button id="print" class="roundedbtn" onclick="window.print()">🖨️<br>Print</button></li>
+        </ul>
+        <p>
+            <img src="https://gwrench.com/wp-content/uploads/2022/05/AutoRepairShopVista.jpg" class="postImage">
+            <table>
+                <tr height="50px">
+                    <th>What:</th>
+                    <td>A Respected Mobile and Stationary Mechanic Shop in the Highland Heights Area</td>
+                </tr>
+                <tr height="50px">
+                    <th>Open:</th>
+                    <td>Monday-Saturday 8am-7pm</td>
+                </tr>
+                <tr height="50px">
+                    <th>Where:</th>
+                    <td>987 No Dr. Highland Heights, KY 41076</td>
+                </tr>
+                <tr height="50px">
+                    <th>Services:</th>
+                    <td>Engine Work, Brake Repadding, Computer Programming, Timing Belts and Chains</td>
+                </tr>
+            </table>
+            <br>
+            <!--Credit Goes to Microsoft Copilot for this Post Description-->
+            At Jessy's Mobile Mechanic Services, we bring the garage to your driveway!
+            Whether you're stuck at home, at work, or on the road, our certified technicians
+            are ready to get you back behind the wheel—fast.<br>
+                Services We Offer Include:<br>
+                <ul>
+                    <li>Brake Repair and replacement</li>
+                    <li>Battery testing & installation</li>
+                    <li>Oil changes & fluid top-offs</li>
+                    <li>Engine Diagnostics</li>
+                    <li>Starter and Alternator Replacement</li>
+                    <li>Emergency Roadside Assistance</li>
+                </ul>
+                Don't waste time at the shop—let the shop come to you. Your car, your schedule, your convenience.
+        </p>
+        <ul class="postInfo">
+            <li>post id: 6425389751</li>
+            <li>posted: 5 months ago</li>
+        </ul>
+        <!--PopUps Code-->
+        <div id="popup-overlay">
+            <div id="popupContent">
+                <div id="popupMessage"></div>
+                <button id="close-popup" onclick="closePopup()">Close</button>
+            </div>
+        </div>   
+    </main>
+    
+    <script src="craigjava.js"></script>
+
+    <script>
+        const popupOverlay = document.getElementById('popup-overlay');
+        const popupMessage = document.getElementById('popupMessage');
+
+        // Close popup when clicking outside the content
+        popupOverlay.addEventListener('click', function(event) {
+            if (event.target === popupOverlay) {
+                popupOverlay.style.display = 'none';
+            }
+        });
+
+
+      //Functions for buttons. Onclick called in HTML  
+        function reply() {
+            popupMessage.innerHTML = "<h2>Reply!</h2><p>Contact Jessy's Mobile Mechanic:<br>Call: (890) 567-1234<br>Email: amazingaddress@email.com<br>Website: mobilemechanicwebsitename.com</p>";
+            popupOverlay.style.display = 'flex'; // Show the popup
+        };
+        function favorite() {
+            popupMessage.innerHTML = "<h2>Favorite!</h2><p>This event posting has been added to your favorites!</p>";
+            popupOverlay.style.display = 'flex'; // Show the popup
+        };
+        function hide() {
+            popupMessage.innerHTML = "<h2>Hide!</h2><p>This listing will be hidden from you in the future.</p>";
+            popupOverlay.style.display = 'flex'; // Show the popup
+        };
+        function flag() {
+            popupMessage.innerHTML = "<h2>Flag!</h2><p>Thank you for your feedback, this listing in now flagged for poor content.</p>";
+            popupOverlay.style.display = 'flex'; // Show the popup
+        };
+        function share() {
+            popupMessage.innerHTML = "<h2>Share!</h2><p>Copy URL: "+ window.location.href+ "</p>";
+            popupOverlay.style.display = 'flex'; // Show the popup
+        };
+        function closePopup() {
+            popupOverlay.style.display = 'none'; // Hide the popup
+        };
+
+</script>
+</body>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<head>
+    <title>Craigslist Redesign - Lights for Sale</title>
+    <link rel="stylesheet" href="../craigslist html/javascript_&_css/craigscss.css">
+    <style>
+        .postOptions {
+            list-style: none;
+            padding: 15px;
+            margin: 0;
+            display: flex;
+            justify-content: left;
+        }
+        .postInfo {
+            list-style: none;
+            padding: 15px;
+            margin: 0;
+            display: flex;
+            justify-content: space-around;
+        }
+        .postImage {
+            float: right;
+            width: 33%;
+        }
+        .eventDescription {
+            padding-left: 50px;
+            padding-right: 50px;
+            text-align: justify;
+        }
+        .imageControls {
+            list-style: none;
+            padding: 15px;
+            margin: 0;
+            display: flex;
+            justify-content: space-between;
+        }
+        #forSaleImage {
+            width: 100%;
+            aspect-ratio: 1/1;
+            object-fit: cover;
+        }
+        #popup-overlay {
+            position: fixed; /* Fixed position relative to the viewport */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+            display: none; /* Hidden by default */
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+            z-index: 1000; /* Ensure it's on top of other content */
+        }   
+        #popupContent {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+       }
+       @media print {
+            .noprint {
+                display:none;
+            }
+       }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="noprint"><!--NAVBAR--->
+        </div>
+        <h1>Craigslist For Sale Items</h1>
+        <a href="About_Craigslist.html" class="noprint">About Us</a>
+        <a href="Event_Listing.html" class="noprint">Eddie's</a>
+        <a href="For_Sale.html" class="noprint">Lights</a>
+        <a href="Service_Listings.html" class="noprint">Mechanic</a>
+        <h2>LED Strip Christmas Light!</h2>
+        <ul class="postOptions noprint">
+            <li><button id="reply" class="roundedbtn" onclick="reply()">📧<br>Reply</button></li>
+            <li><button id="favorite" class="roundedbtn" onclick="favorite()">⭐<br>Favorite</button></li>
+            <li><button id="hide" class="roundedbtn" onclick="hide()">🙈<br>Hide</button></li>
+            <li><button id="flag" class="roundedbtn" onclick="flag()">🚩<br>Flag</button></li>
+            <li><button id="share" class="roundedbtn" onclick="share()">📩<br>Share</button></li>
+            <li><button id="print" class="roundedbtn" onclick="window.print()">🖨️<br>Print</button></li>
+        </ul>
+        <p>
+            <div  class="postImage">
+                <img id="forSaleImage" src="">
+                <ul class="imageControls">
+                    <li>
+                        <button class="roundedbtn" onclick="imageChange(-1)">Prev</button>
+                    </li>
+                    <li>
+                        <button class="roundedbtn" onclick="imageChange(1)">Next</button>
+                    </li>
+                </ul>
+            </div>
+            <table>
+                <tr height="50px">
+                    <th>What:</th>
+                    <td>99ft Multicolor LED Smart C9 Sting Lights</td>
+                </tr>
+                <tr height="50px">
+                    <th>Price:</th>
+                    <td>$10.00</td>
+                </tr>
+                <tr height="50px">
+                    <th>Where:</th>
+                    <td>54 Every Ct. Highland Heights, KY 41076</td>
+                </tr>
+                <tr height="50px">
+                    <th>Description:</th>
+                    <td>Lightly used LED Lights. I recently moved and cannot use them in my new apartment. They work great! Just plug in and enjoy the holiday season!</td>
+                </tr>
+            </table>
+        </p>
+        <ul class="postInfo">
+            <li>post id: 8513469725</li>
+            <li>posted: 1 day ago</li>
+        </ul>
+        <!--PopUps Code-->
+        <div id="popup-overlay">
+            <div id="popupContent">
+                <div id="popupMessage"></div>
+                <button id="close-popup" onclick="closePopup()">Close</button>
+            </div>
+        </div>   
+    </main>
+
+    <script src="craigjava.js"></script>
+
+    <script>
+        const popupOverlay = document.getElementById('popup-overlay');
+        const popupMessage = document.getElementById('popupMessage');
+        const forSaleImage = document.getElementById('forSaleImage');
+
+        let index = 1000;
+        const imagePics = ["https://i5.walmartimages.com/seo/99Ft-Smart-String-Lights-150-LED-DIY-Extendable-C9-Color-Changing-APP-Remote-Controlled-Music-Timer-Halloween-Waterproof-Programmable-Lights-Eaves-Fe_4a9df835-39ae-4845-b8fe-b3767aa07375.16f58018394f005994d1ef477630ee8b.jpeg?odnHeight=573&odnWidth=573&odnBg=FFFFFF",
+                            "https://i5.walmartimages.com/asr/7c233b36-6ca3-452f-aaca-edd38895fbcd.f1b3c3e4065e92e1056b72ccc94601f6.jpeg?odnHeight=768&odnWidth=768&odnBg=FFFFFF",
+                            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5_mh4rWg-Z3bvYXyyJQnTzWgzx1Ir8XfDug&s",
+                            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOpN_-JmV3YUm8EZGtp0dB3dMmnhFQ31aBOw&s"
+                            ];
+
+        //Initialize Image
+        imageChange(0);
+
+        // Close popup when clicking outside the content
+        popupOverlay.addEventListener('click', function(event) {
+            if (event.target === popupOverlay) {
+                popupOverlay.style.display = 'none';
+            }
+        });
+
+      //Functions for buttons. Onclick called in HTML  
+        function reply() {
+            popupMessage.innerHTML = "<h2>Reply!</h2><p>Contact Freddy Croger:<br>Call: (111) 222-3333<br>Email: hisemail@email.com</p>";
+            popupOverlay.style.display = 'flex'; // Show the popup
+        };
+        function favorite() {
+            popupMessage.innerHTML = "<h2>Favorite!</h2><p>This event posting has been added to your favorites!</p>";
+            popupOverlay.style.display = 'flex'; // Show the popup
+        };
+        function hide() {
+            popupMessage.innerHTML = "<h2>Hide!</h2><p>This listing will be hidden from you in the future.</p>";
+            popupOverlay.style.display = 'flex'; // Show the popup
+        };
+        function flag() {
+            popupMessage.innerHTML = "<h2>Flag!</h2><p>Thank you for your feedback, this listing in now flagged for poor content.</p>";
+            popupOverlay.style.display = 'flex'; // Show the popup
+        };
+        function share() {
+            popupMessage.innerHTML = "<h2>Share!</h2><p>Copy URL: "+ window.location.href+ "</p>";
+            popupOverlay.style.display = 'flex'; // Show the popup
+        };
+        function closePopup() {
+            popupOverlay.style.display = 'none'; // Hide the popup
+        };
+        function imageChange(change) {
+            index=index+(change);
+            forSaleImage.src=imagePics[(index)%4];
+        };
+    </script>
+    <script src="../craigslist html/javascript_&_css/craigjava.js"></script>
+</body>
