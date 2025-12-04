@@ -1,0 +1,240 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: #C5C6D0;
+}
+
+.craignav {
+    overflow: hidden;
+    background-color: #281E5D;
+    color: white;
+    display: block;
+    width: 100%;
+    margin: 0;
+}
+
+.craignav a {
+    text-decoration: none;
+    list-style-type: none;
+    float: left;
+    color: white;
+    font-size: 18px;
+    text-align: center;
+    padding: 15px;
+}
+
+.homeicon {
+    width: 21px;
+    height: 21px;
+    background-color: inherit;
+    color: inherit;
+    display: block;
+    text-align: center;
+}
+
+.dropdown {
+    float: left;
+    overflow: hidden;
+}
+
+.dropdown .dropbtn {
+    cursor: pointer;
+    font-size: 18px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    border: none;
+    outline: none;
+    color: inherit;
+    padding: 15px;
+    background-color: inherit;
+    margin: 0;
+}
+
+.craignav a:hover, .dropdown:hover .dropbtn, .dropbtn:focus {
+    color: white;
+    background-color: #241571;
+    font-size: 18px;
+}
+
+.dropcontent {
+    display: none;
+    position: absolute;
+    background-color: #281E5D;
+    color: white;
+    z-index: 1;
+}
+
+.dropcontent a {
+    float: none;
+    color: white;
+    padding: 15px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    height: auto;
+    width: auto;
+}
+
+.dropcontent a:hover {
+    background-color: #241571;
+    color: white;
+}
+
+.show {
+    display: block;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.centerimg {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+/*Table 1 and color code*/
+
+.tablecenter {
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 18px;
+}
+
+.centertd {
+    padding: 15px;
+    text-align: center;
+}
+
+.tableheader1 {
+    font-size: 22px;
+    text-align: center;
+    background-color: #241571;
+    color: white;
+    border-radius: 15px;
+}
+
+.tableheader2 {
+    font-size: 22px;
+    text-align: center;
+    background-color: #051094;
+    color: white;
+    border-radius: 15px;
+}
+
+.tableheader3 {
+    font-size: 22px;
+    text-align: center;
+    background-color: #2832C2;
+    color: white;
+    border-radius: 15px;
+}
+
+/*Table 2 basic insides*/
+
+.cleantd a {
+    text-decoration: none;
+    color: black;
+    text-align: left;
+    padding: 15px;
+    border-spacing: 10px 5px;
+    display: block;
+    border-radius: 10px;
+}
+
+.cleantd a:hover {
+    background-color: navy;
+    color: white;
+    display: block;
+}
+
+.tdimage {
+    display: block;
+    width: auto;
+    height: auto;
+}
+
+/*Rounded button inside table & color code*/
+
+.roundedbtn {
+    text-align: center;
+    background-color: #281E5D;
+    color: white;
+    border-radius: 10px;
+}
+
+.roundedbtn a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.roundedbtn:hover {
+    text-align: center;
+    background-color: navy;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.roundedbtn2 {
+    text-align: center;
+    background-color: #241571;
+    color: white;
+    border-radius: 10px;
+}
+
+.roundedbtn2 a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.roundedbtn2:hover {
+    text-align: center;
+    background-color: whitesmoke;
+    color: #241571;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.roundedbtn3 {
+    text-align: center;
+    background-color: #051094;
+    color: white;
+    border-radius: 10px;
+}
+
+.roundedbtn3 a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.roundedbtn3:hover {
+    text-align: center;
+    background-color: whitesmoke;
+    color: #051094;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.roundedbtn4 {
+    text-align: center;
+    background-color: #2832C2;
+    color: white;
+    border-radius: 10px;
+}
+
+.roundedbtn4 a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.roundedbtn4:hover {
+    text-align: center;
+    background-color: whitesmoke;
+    color: #2832C2;
+    border-radius: 10px;
+    cursor: pointer;
+}
