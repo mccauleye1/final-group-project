@@ -27,6 +27,10 @@ document.getElementById("ExampleListing").addEventListener("click", function(){
   window.location.href = "Event_Listing.html";
 })
 
+document.getElementById("homeBtn").addEventListener("click", function(){
+  window.location.href = "craigshome.html";
+})
+
 // ------------------------------------
 // SEARCH FUNCTION 
 // ------------------------------------
